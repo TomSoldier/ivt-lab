@@ -4,8 +4,6 @@ import java.util.Random;
 
 /**
  * Class storing and managing the torpedoes of a ship
- *
- * (Deliberately contains bugs.)
  */
 public class TorpedoStore {
 
@@ -30,7 +28,7 @@ public class TorpedoStore {
 
   public boolean fire(int numberOfTorpedos) {
     if (numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount) {
-      throw new IllegalArgumentException("numberOfTorpedos");
+      throw new IllegalArgumentException("Cannot fire less than one torpedo");
     }
 
     boolean success = false;
