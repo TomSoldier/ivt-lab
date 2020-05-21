@@ -10,7 +10,7 @@ public class TorpedoStore {
   // rate of failing to fire torpedos [0.0, 1.0]
   private double FAILURE_RATE = 0.0; // NOSONAR
   private int torpedoCount = 0;
-  Random generator = new Random();
+  private Random generator = new Random();
 
   public TorpedoStore(int numberOfTorpedos) {
     this.torpedoCount = numberOfTorpedos;
@@ -28,7 +28,7 @@ public class TorpedoStore {
 
   public boolean fire(int numberOfTorpedos) {
     if (numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount) {
-      throw new IllegalArgumentException("Cannot fire less than one torpedo");
+      throw new IllegalArgumentException("Cannot fire less than one torpedo, or more then available");
     }
 
     boolean success = false;
